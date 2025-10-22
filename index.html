@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website - Muhammad Qadeer</title>
+    <style>
+        /* ===== General Styling ===== */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f2f2f2;
+        }
+
+
+        /* === Learn Coding Section === */
+#learn {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 50px 20px;
+}
+
+/* Circle Container Animation */
+.circle-container {
+  width: 300px;
+  height: 300px;
+  margin: 40px auto;
+  position: relative;
+  perspective: 1000px;
+  animation: circleEntry 1.2s ease-out forwards;
+  transform-origin: center;
+  opacity: 0;
+}
+
+/* Zoom In-Out Animation When Tab Opens */
+@keyframes circleEntry {
+  0% { transform: translateX(300px) scale(0.2); opacity: 0; }
+  60% { transform: translateX(0) scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Main Circle */
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+  animation: circleSpin 6s linear infinite alternate;
+}
+
+/* Circle Rotate Animation */
+@keyframes circleSpin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* Circle Items (Buttons) */
+.circle-item {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  line-height: 90px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  transition: transform 0.4s, box-shadow 0.4s, background 0.4s;
+}
+
+/* Individual Buttons Positioned Around Circle */
+.circle-item.html { 
+  background: #f16529; 
+  transform: rotateY(0deg) translateZ(150px);
+}
+.circle-item.css { 
+  background: #2965f1; 
+  transform: rotateY(120deg) translateZ(150px);
+}
+.circle-item.js { 
+  background: #f7df1e; 
+  color: #222;
+  transform: rotateY(240deg) translateZ(150px);
+}
+
+/* Hover Effects */
+.circle-item:hover {
+  transform: scale(1.2) translateZ(150px);
+  box-shadow: 0 0 40px rgba(255,255,255,0.8);
+}
+
+/* Language Info Box */
+.language-info {
+  margin-top: 30px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Fade In Animation for Info */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .circle-container { width: 220px; height: 220px; }
+  .circle-item { width: 70px; height: 70px; line-height: 70px; font-size: 0.9rem; }
+}
+
+        /* ===== Navigation Bar ===== */
+        nav {
+            background-color: #1f1996;
+            padding: 1em;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0.5em;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            transition: background 0.3s;
+            box-shadow: 0 0 50px #11106a;
+        }
+        
+
+        nav a:hover, nav a.active {
+            background-color: #0d0d69;
+        }
+
+        /* ===== Tab Content ===== */
+        .tab-content {
+            padding: 1.5em;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .tab-pane {
+            display: none;
+            background: #fff;
+            padding: 1.5em;
+            border-radius: 10px;
+            box-shadow: 0 0 100px rgb(31, 8, 160);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        h1 {
+            color: #00698f;
+        }
+
+        /* ===== CV Section ===== */
+        .cv-container {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #ffffff;
+            box-shadow: 0 0 50px rgba(60, 0, 255, 0.663);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .left-side {
+            background-color: #1a187e;
+            color: #fff;
+            flex: 1 1 250px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile-photo img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            margin-bottom: 10px;
+        }
+
+        .right-side {
+            flex: 2 1 400px;
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cv-container {
+                flex-direction: column;
+            }
+            .right-side, .left-side {
+                width: 100%;
+            }
+        }
+        .right-side {
+    width: 70%;
+    padding: 20px;
+}
+
+h3 {
+    margin-top: 0;
+    color: #00698f;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* === Base Styling === */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #eef2ff, #ffffff);
+    overflow-x: hidden;
+}
+
+/* === Animation Keyframes === */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes glowText {
+    0% { text-shadow: 0 0 5px #1f1996, 0 0 10px #1f1996, 0 0 20px #00b7ff; }
+    50% { text-shadow: 0 0 15px #00b7ff, 0 0 25px #00b7ff, 0 0 40px #1f1996; }
+    100% { text-shadow: 0 0 5px #1f1996, 0 0 10px #00b7ff, 0 0 20px #00b7ff; }
+}
+
+@keyframes rotatePhoto {
+    from { transform: rotate(-10deg) scale(0.9); opacity: 0; }
+    to { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+/* === Heading Animations === */
+h1, h2, h3 {
+    animation: fadeInUp 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
+}
+
+h1 {
+    color: #00698f;
+    animation: glowText 3s infinite alternate, fadeInUp 1.2s ease forwards;
+}
+
+h2 {
+    color: #1f1996;
+    animation: fadeInLeft 1.5s ease forwards;
+}
+
+h3 {
+    color: #0e6ba8;
+    animation: fadeInRight 1.5s ease forwards;
+}
+
+/* === Paragraph Animations === */
+p {
+    opacity: 0;
+    animation: fadeInUp 1.5s ease forwards;
+    animation-delay: 0.3s;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* === Profile Photo Animation === */
+.profile-photo img {
+    animation: rotatePhoto 7s ease-in-out forwards;
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 25px rgba(31, 25, 150, 0.4);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.profile-photo img:hover {
+    transform: scale(1.08) rotate(5deg);
+    box-shadow: 0 0 40px rgba(0, 183, 255, 0.6);
+}
+
+/* === List Items Animation === */
+ul li {
+    opacity: 0;
+    animation: fadeInLeft 2s ease forwards;
+    animation-delay: 0.5s;
+    padding: 5px 0;
+    transition: transform 0.3s ease;
+}
+
+ul li:hover {
+    transform: scale(1.05);
+    color: #1f1996;
+    font-weight: bold;
+}
+
+/* === CV Container Animation === */
+.cv-container {
+    animation: zoomIn 3s ease forwards;
+    opacity: 0;
+}
+
+/* === Tabs Container Fade === */
+.tab-pane {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tab-pane.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === Navigation Animations === */
+nav a {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: #00b7ff;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease;
+}
+
+nav a:hover::after {
+    transform: translateX(0);
+}
+
+nav a:hover {
+    color: #00b7ff;
+    transform: scale(1.1);
+}
+
+/* === Urdu Section Animation === */
+h1[style*="blue"], h1:contains("URDU") {
+    animation: glowText 2.5s infinite alternate;
+    text-align: center;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    h1, h2, h3 {
+        text-align: center;
+    }
+
+    p, ul {
+        text-align: justify;
+    }
+
+    .profile-photo img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <!-- ===== Navigation ===== -->
+    <nav>
+        <ul>
+            <li><a href="#home" class="tab-link active">Home</a></li>
+            <li><a href="#about" class="tab-link">About Me</a></li>
+            <li><a href="#contact" class="tab-link">Contact</a></li>
+            <li><a href="#learn" class="tab-link">Learn Coding</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== Tabs Content ===== -->
+    <div class="tab-content">
+        <div id="home" class="tab-pane active">
+            <h1>Welcome to My Website!</h1>
+            <p>This is the home tab. You can explore simple and easy-to-understand HTML, CSS, and JavaScript codes here.</p>
+
+            <P style="text-align: center;">
+            <h1 style="color: #ffffff ;text-align: center"  >___________________</h1>
+            <h1 style="color: #11106a; font-family: Georgia, 'Times New Roman', Times, serif; text-align: center">INTRODUCTION</h1>
+            <h1 style="color: #fdfdfd; text-align: center">___________________</h1>
+            </P>
+            <p>    
+On this website, you can view online codes of HTML, CSS, and JavaScript, and easily copy them for your use. These codes are very simple and user-friendly. If you want to contact me, my email is available in the Contact tab. In the About Me tab, you can view my skills, CV, and other information.
+</p>
+<p>
+
+This website is designed to provide a simple and easy-to-use interface for users to access and utilize various online codes. The codes are well-organized and easy to understand, making it simple for users to copy and paste them into their own projects.
+</p>
+<p>
+The website features a navigation menu with tabs for Home, About Me, Contact, and My CV. Each tab provides relevant information and resources, making it easy for users to find what they need.
+</p>
+<p>
+In the Home tab, you can find an introduction to the website and its purpose. The About Me tab provides information about my skills, experience, and qualifications. The Contact tab allows you to get in touch with me via email or other means. The My CV tab provides a detailed overview of my professional experience and achievements.
+</p>
+<p>
+
+Overall, this website is a valuable resource for anyone looking for simple and easy-to-use online codes. Whether you're a beginner or an experienced developer, you'll find something useful here.
+
+
+I hope you find this website helpful and informative. If you have any questions or need further assistance, please don't hesitate to contact me.
+
+Here is the translated paragraph in 600 words:
+
+</p>
+<p>
+
+On this website, you can view online codes of HTML, CSS, and JavaScript, and easily copy them for your use. These codes are very simple and user-friendly. If you want to contact me, my email is available in the Contact tab. In the About Me tab, you can view my skills, CV, and other information.
+</p>
+<p>
+
+This website is designed to provide a simple and easy-to-use interface for users to access and utilize various online codes. The codes are well-organized and easy to understand, making it simple for users to copy and paste them into their own projects.</p>
+<p>
+The website features a navigation menu with tabs for Home, About Me, Contact, and My CV. Each tab provides relevant information and resources, making it easy for users to find what they need.
+</p>
+In the Home tab, you can find an introduction to the website and its purpose. The About Me tab provides information about my skills, experience, and qualifications. The Contact tab allows you to get in touch with me via email or other means. The My CV tab provides a detailed overview of my professional experience and achievements.
+<p>
+The website is built using HTML, CSS, and JavaScript, and is designed to be responsive and user-friendly. The codes are well-documented and easy to understand, making it simple for users to customize and use them in their own projects.
+</p>
+<p>
+I hope you find this website helpful and informative. If you have any questions or need further assistance, please don't hesitate to contact me. My email is available in the Contact tab, and I look forward to hearing from you.
+</p>
+<p>
+The website is a valuable resource for anyone looking for simple and easy-to-use online codes. Whether you're a beginner or an experienced developer, you'll find something useful here. The codes are well-organized and easy to understand, making it simple for users to copy and paste them into their own projects.
+</p>
+<p>
+I have included a variety of codes and resources on the website, including HTML, CSS, and JavaScript codes. These codes are well-documented and easy to understand, making it simple for users to customize and use them in their own projects.
+</p>
+<p>
+I hope you enjoy using this website and find it helpful in your projects. If you have any feedback or suggestions, please don't hesitate to contact me. I look forward to hearing from you and providing you with the best possible resources and codes. </p>
+
+<h1 style="color: #ffffff; text-align: center;">___________</h1>
+            <h1 style=" font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: rgb(13, 13, 95);text-align: center;"> IN URDU </h1>
+<h1 style="color: #ffffff; text-align: center;">___________</h1>
+
+<p>اس ویب سائٹ پر، آپ HTML، CSS، اور JavaScript کے آن لائن کوڈز دیکھ سکتے ہیں اور آسانی سے اپنے استعمال کے لیے کاپی کر سکتے ہیں۔ یہ کوڈز بہت سادہ اور صارف دوست ہیں۔ اگر آپ مجھ سے رابطہ کرنا چاہتے ہیں تو میرا ای میل ایڈریس کانٹیکٹ ٹیب میں دستیاب ہے۔ اباؤٹ می ٹیب میں، آپ میری مہارتوں، سی وی، اور دیگر معلومات دیکھ سکتے ہیں۔
+</p>
+<p>
+یہ ویب سائٹ صارفین کو مختلف آن لائن کوڈز تک رسائی اور استعمال کرنے کے لیے ایک سادہ اور آسان انٹرفیس فراہم کرنے کے لیے ڈیزائن کی گئی ہے۔ کوڈز اچھی طرح سے منظم اور سمجھنے میں آسان ہیں، جس سے صارفین کے لیے انہیں اپنے منصوبوں میں کاپی اور پیسٹ کرنا آسان ہو جاتا ہے۔
+</p>
+<p>
+ویب سائٹ میں ہوم، اباؤٹ می، کانٹیکٹ، اور مائی سی وی کے ٹیب کے ساتھ ایک نیویگیشن مینو ہے۔ ہر ٹیب متعلقہ معلومات اور وسائل فراہم کرتا ہے، جس سے صارفین کو اپنی ضرورت کے مطابق چیزیں تلاش کرنا آسان ہو جاتا ہے۔
+</p>
+<p>
+ہوم ٹیب میں، آپ ویب سائٹ اور اس کے مقصد کا تعارف حاصل کر سکتے ہیں۔ اباؤٹ می ٹیب میری مہارتوں، تجربے، اور قابلیتوں کے بارے میں معلومات فراہم کرتا ہے۔ کانٹیکٹ ٹیب آپ کو ای میل یا دیگر ذرائع سے مجھ سے رابطہ کرنے کی اجازت دیتا ہے۔ مائی سی وی ٹیب میرے پیشہ ورانہ تجربے اور کامیابیوں کا تفصیلی جائزہ فراہم کرتا ہے۔
+
+</p>
+<p>
+ویب سائٹ HTML، CSS، اور JavaScript کا استعمال کرتے ہوئے بنائی گئی ہے، اور یہ ریسپانسیو اور صارف دوست ہونے کے لیے ڈیزائن کی گئی ہے۔ کوڈز اچھی طرح سے دستاویزی ہیں اور سمجھنے میں آسان ہیں، جس سے صارفین کے لیے انہیں اپنے منصوبوں میں اپنی مرضی کے مطابق بنانا اور استعمال کرنا آسان ہو جاتا ہے۔
+</p>
+<p>
+مجھے امید ہے کہ آپ کو یہ ویب سائٹ مددگار اور معلوماتی ملے گی۔ اگر آپ کے کوئی سوالات ہیں یا مزید مدد کی ضرورت ہے، تو براہ کرم مجھ سے رابطہ کرنے میں ہچکچاہٹ نہ کریں۔ میرا ای میل ایڈریس کانٹیکٹ ٹیب میں دستیاب ہے، اور میں آپ سے سننے کے منتظر ہوں۔
+</p>
+<p>
+ویب سائٹ سادہ اور آسان آن لائن کوڈز کی تلاش کرنے والے کسی بھی شخص کے لیے ایک قیمتی وسیلہ ہے۔ چاہے آپ ایک ابتدائی ہیں یا ایک تجربہ کار ڈویلپر، آپ کو یہاں کچھ مفید ملے گا۔ کوڈز اچھی طرح سے منظم اور سمجھنے میں آسان ہیں، جس سے صارفین کے لیے انہیں اپنے منصوبوں میں کاپی اور پیسٹ کرنا آسان ہو جاتا ہے۔
+</p>
+<p>
+میں نے ویب سائٹ پر مختلف کوڈز اور وسائل شامل کیے ہیں، جن میں HTML، CSS، اور JavaScript کوڈز شامل ہیں۔ یہ کوڈز اچھی طرح سے دستاویزی ہیں اور سمجھنے میں آسان ہیں، جس سے صارفین کے لیے انہیں اپنے منصوبوں میں اپنی مرضی کے مطابق بنانا اور استعمال کرنا آسان ہو جاتا ہے۔
+</p>
+<p>
+مجھے امید ہے کہ آپ اس ویب سائٹ کو استعمال کرنے کا لطف اٹھائیں گے اور اپنے منصوبوں میں اسے مددگار پائیں گے۔ اگر آپ کے پاس کوئی رائے یا تجاویز ہیں، تو براہ کرم مجھ سے رابطہ کرنے میں ہچکچاہٹ نہ کریں۔ میں آپ سے سننے کے منتظر ہوں اور آپ کو بہترین ممکنہ وسائل اور کوڈز فراہم کرنے کے لیے تیار ہوں۔</p>
+
+ <h1 style="font-family: 'Times New Roman', Times, serif; color: #ffffff; text-align: Center;">Muhammad Qadeer </h1>
+        </div>
+
+        <div id="about" class="tab-pane">
+            <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">CURRICULUM VITAE </h1>
+            <div class="cv-container">
+                <div class="left-side">
+                    <div class="profile-photo">
+                        <img src="profile-photo.jpg.png.png" alt="Muhammad Qadeer">
+                    </div>
+                    <h2 style="font-family: Georgia, 'Times New Roman', Times, serif; color: white;">Muhammad Qadeer</h2>
+                    <p style="font-family: Georgia, 'Times New Roman', Times, serif; color: white;"><strong>Contact:</strong><br>03364588567 / 03218215690<br>mqbekhang@gmail.com</p>
+                    <p style="color: white;">Near Sunrise Meddle Public School Manjhi Pur, District Sohbat Pur</p>
+                    <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">Skills</h3>
+                    <ul style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                        <li>Web Design</li>
+                        <li>AI Tools</li>
+                        <li>Graphic Design</li>
+                        <li>Trading</li>
+                        <li>Marketing</li>
+                    </ul>
+                    <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">Languages</h3>
+                    <ul style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                        <li>English</li>
+                        <li>Urdu</li>
+                        <li>Sindhi</li>
+                        <li>Balochi</li>
+                    </ul>
+                </div>
+                <div class="right-side" style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <h3>Education</h3>
+                    <p>(2013–2025) Government Boys High School Manjhi Pur</p>
+                    <p>Class 4 to 10<sup>th</sup></p>
+                    <h3>Computer Skills</h3>
+                    <ul>
+                        <li>BIT, CIT, DIT, ADIT</li>
+                        <li>Web Development</li>
+                        <li>AI Tools</li>
+                        <li>Graphic Design</li>
+                        <li>AutoCAD</li>
+                    </ul>
+                    <h3>Experience</h3>
+                    <p>(2024–2025)</p>
+                    <ul>
+                        <li>1 year: Balochistan Institute of Technology Quetta</li>
+                        <li>8 months: Sound Foundation Center Quetta</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+<div id="contact" class="tab-pane">
+            <h1>Contact</h1>
+                        <p>Aslamualikum! You can contact me at:</p>
+            <p><strong>Email:</strong> mqbekhang@gmail.com</p>
+            <p><strong>Phone:</strong> 03364588567</p>
+        </div>
+
+        <div id="learn" class="tab-pane">
+           <!-- ===== Learn Coding Section ===== -->
+
+            <h1>Learn Coding by Muhammad Qadeer</h1>
+            <p>Choose your language below to start learning interactively!</p>
+
+            <div class="circle-container">
+             <div class="circle" id="circle">
+             <div class="circle-item html">HTML</div>
+           <div class="circle-item css">CSS</div>
+         <div class="circle-item js">JS</div>
+    </div>
+  </div>
+
+  <div class="language-info" id="languageInfo">
+    <h2>Select a Language</h2>
+    <p>Rotate the circle and click a tab to learn HTML, CSS, or JavaScript.</p>
+    
+      <!-- === Circle Container === -->
+  <div class="circle-container">
+    <div class="circle html-circle">HTML</div>
+    <div class="circle css-circle">CSS</div>
+    <div class="circle js-circle">JavaScript</div>
+  </div>
+
+    
+  </div>
+</div>
+
+            
+        </div>
+    </div>
+    <!-- ===== Learn Coding Section ===== -->
+
+  <!-- === Fullscreen HTML Section === -->
+  <div class="fullscreen-tab" id="html-tab">
+    <div class="tab-content-inner">
+      <button class="close-btn">&times;</button>
+      <h2>HTML Codes & Explanation</h2>
+      <p>HTML (HyperText Markup Language) is used to create the structure of web pages.</p>
+      
+        <section class="cards">
+          <div class="card">
+            <h3>&lt;!DOCTYPE html&gt;</h3>
+            <pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+            <p>Declares the document type as HTML5. | HTML5 ڈاکومنٹ ٹائپ۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;html&gt; … &lt;/html&gt;</h3>
+            <pre><code>&lt;html lang="en"&gt;...&lt;/html&gt;</code></pre>
+            <p>Root of the HTML document. | ڈاکومنٹ کی جڑی عنصر۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;head&gt; … &lt;/head&gt;</h3>
+            <pre><code>&lt;head&gt;&lt;title&gt;Page&lt;/title&gt;&lt;/head&gt;</code></pre>
+            <p>Metadata, title, links to CSS. | میٹا ڈیٹا اور اسٹائل لنکس۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;body&gt; … &lt;/body&gt;</h3>
+            <pre><code>&lt;body&gt;Visible content&lt;/body&gt;</code></pre>
+            <p>Visible content for users. | صارف کے لیے دکھائی دینے والا مواد۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;h1&gt; … &lt;h6&gt;</h3>
+            <pre><code>&lt;h1&gt;Heading&lt;/h1&gt;</code></pre>
+            <p>Headings from large to small. | بڑا سے چھوٹا۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;p&gt;</h3>
+            <pre><code>&lt;p&gt;A paragraph.&lt;/p&gt;</code></pre>
+            <p>Paragraph text. | ایک پیراگراف۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;a href="..."&gt;</h3>
+            <pre><code>&lt;a href="https://example.com"&gt;Link&lt;/a&gt;</code></pre>
+            <p>Hyperlink to other pages. | لنکس بنانے کے لیے۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;img src="..." alt="..."&gt;</h3>
+            <pre><code>&lt;img src="photo.jpg" alt="My photo"&gt;</code></pre>
+            <p>Images with alt text. | امیج اور اسکا آلٹ ٹیکسٹ۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;ul&gt; &lt;li&gt;</h3>
+            <pre><code>&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></pre>
+            <p>Unordered list. | بلٹ لسٹ۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;table&gt;</h3>
+            <pre><code>&lt;table&gt;&lt;tr&gt;&lt;td&gt;Cell&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre>
+            <p>Tabular data. | ٹیبل۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;form&gt;</h3>
+            <pre><code>&lt;form&gt;&lt;input /&gt;&lt;/form&gt;</code></pre>
+            <p>User input forms. | فارم۔</p>
+          </div>
+
+          <div class="card">
+            <h3>&lt;button&gt;</h3>
+            <pre><code>&lt;button&gt;Click&lt;/button&gt;</code></pre>
+            <p>Clickable button element. | کلک کے قابل بٹن۔</p>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+
+  <!-- CSS overlay -->
+  
+  
+  
+    <div class="fullscreen-tab" id="css-tab">
+    <div class="tab-content-inner">
+      <button class="close-btn">&times;</button>
+      <h2>CSS Codes & Explanation</h2>
+      <p>CSS (HyperText Markup Language) is used to create the structure of web pages.</p>
+  
+  
+  
+  
+  
+  
+  
+  <div class="overlay" id="overlay-css" aria-hidden="true">
+    <div class="overlay-inner">
+      <button class="overlay-close" data-close>×</button>
+      <article class="lesson">
+        <h1>CSS — Codes & Explanation</h1>
+        <p class="lead">CSS styles web pages. | CSS ویب پیج اسٹائل کرتا ہے۔</p>
+
+        <section class="cards">
+          <div class="card">
+            <h3>Selector &amp; Property</h3>
+            <pre><code>p { color: blue; }</code></pre>
+            <p>Select elements & set properties. | عناصر منتخب کر کے خصوصیات دیں۔</p>
+          </div>
+
+          <div class="card">
+            <h3>Box Model</h3>
+            <pre><code>padding, border, margin</code></pre>
+            <p>Spacing around elements. | باکس ماڈل۔</p>
+          </div>
+
+          <div class="card">
+            <h3>Flexbox</h3>
+            <pre><code>.row { display:flex; }</code></pre>
+            <p>Layout in one dimension. | فلیکس لے آؤٹ۔</p>
+          </div>
+
+          <div class="card">
+            <h3>Grid</h3>
+            <pre><code>.grid { display:grid; }</code></pre>
+            <p>Two-dimensional layout. | گرڈ لے آؤٹ۔</p>
+          </div>
+
+          <div class="card">
+            <h3>Media Queries</h3>
+            <pre><code>@media (max-width:600px){...}</code></pre>
+            <p>Responsive rules. | موبائل کے لیے قواعد۔</p>
+          </div>
+
+          <div class="card">
+            <h3>Animations</h3>
+            <pre><code>@keyframes fadeIn { from{opacity:0;} }</code></pre>
+            <p>Animate elements smoothly. | اینیمیشنز۔</p>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+
+  <!-- JS overlay -->
+  <div class="overlay" id="overlay-js" aria-hidden="true">
+    <div class="overlay-inner">
+      <button class="overlay-close" data-close>×</button>
+      <article class="lesson">
+        <h1>JavaScript — Codes & Explanation</h1>
+        <p class="lead">JavaScript adds interactivity. | جاوا اسکرپٹ ویب میں تعامل لاتا ہے۔</p>
+
+        <section class="cards">
+          <div class="card">
+            <h3>Basic Script</h3>
+            <pre><code>console.log('Hello');</code></pre>
+            <p>Print to console. | کنسول میں پیغام۔</p>
+          </div>
+
+          <div class="card">
+            <h3>Event Listener</h3>
+            <pre><code>btn.addEventListener('click', fn);</code></pre>
+            <p>React to user actions. | صارف کے اعمال پر رد عمل۔</p>
+          </div>
+
+          <div class="card">
+            <h3>DOM Manipulation</h3>
+            <pre><code>document.querySelector('#id').textContent = 'Hi';</code></pre>
+            <p>Change page content via JS. | پیج بدلنا۔</p>
+          </div>
+
+          <div class="card">
+            <h3>Fetch / AJAX</h3>
+            <pre><code>fetch(url).then(r=>r.json())</code></pre>
+            <p>Load data from the web. | ویب سے ڈیٹا لانا۔</p>
+          </div>
+
+          <div class="card">
+            <h3>Functions</h3>
+            <pre><code>function add(a,b){ return a+b; }</code></pre>
+            <p>Reusable code blocks. | فنکشن۔</p>
+          </div>
+        </section>
+      </article>
+    </div>
+  </div>
+
+<!-- ===== Learn Coding CSS ===== -->
+<style>
+.circle-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  background: #1f1996;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(31,25,150,0.6);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.circle:hover {
+  transform: scale(1.2) rotate(10deg);
+  box-shadow: 0 0 40px #00b7ff;
+}
+
+/* === Fullscreen Animation === */
+.fullscreen-tab {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 0%;
+  background: white;
+  color: #11106a;
+  overflow-y: auto;
+  opacity: 0;
+  transition: all 0.8s ease;
+  z-index: 9999;
+  border-radius: 50%;
+}
+.fullscreen-tab.active {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  border-radius: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* === Inner Content === */
+.tab-content-inner {
+  padding: 40px;
+  animation: slideUp 1s ease;
+}
+@keyframes slideUp {
+  from {opacity: 0; transform: translateY(40px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* === Close Button === */
+.close-btn {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #1f1996;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.close-btn:hover {
+  transform: rotate(90deg);
+  color: #00b7ff;
+}
+
+/* === Code Boxes === */
+.code-box {
+  background: #eef2ff;
+  border-left: 5px solid #1f1996;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(31,25,150,0.2);
+  transition: transform 0.3s ease;
+}
+.code-box:hover {
+  transform: scale(1.03);
+}
+.code-box h3 {
+  margin: 0;
+  color: #1f1996;
+}
+</style>
+
+<!-- ===== Learn Coding JavaScript ===== -->
+<!-- NOTE: All original JS blocks removed and replaced with a single consolidated script at the end. -->
+
+    
+    <!-- ===== JavaScript for Tabs ===== -->
+    <script>
+        const links = document.querySelectorAll('.tab-link');
+        const panes = document.querySelectorAll('.tab-pane');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                links.forEach(l => l.classList.remove('active'));
+                panes.forEach(p => p.classList.remove('active'));
+
+                link.classList.add('active');
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.classList.add('active');
+
+                // Smooth scroll for mobile experience
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+
+<script>
+  // === Circle Rotation Control ===
+  const circle = document.getElementById('circle');
+  const languageInfo = document.getElementById('languageInfo');
+  let rotation = 0;
+
+  // Rotate with mouse drag
+  let isDragging = false;
+  let startX = 0;
+
+  if (circle) {
+    circle.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+    });
+
+    document.addEventListener('mouseup', () => isDragging = false);
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        const delta = e.clientX - startX;
+        rotation += delta * 0.3;
+        circle.style.transform = 'rotateY(' + rotation + 'deg)';
+        startX = e.clientX;
+      }
+    });
+  }
+
+  // Click to select language (shows info in #languageInfo)
+  document.querySelectorAll('.circle-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const lang = item.textContent.trim();
+      let infoHTML = "";
+
+      if (lang === "HTML") {
+        infoHTML = `
+          <h2>HTML Codes</h2>
+          <p>HTML (HyperText Markup Language) is used to structure web pages. Example:</p>
+          <pre><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code></pre>
+        `;
+      } else if (lang === "CSS") {
+        infoHTML = `
+          <h2>CSS Codes</h2>
+          <p>CSS (Cascading Style Sheets) is used to style web pages. Example:</p>
+          <pre><code>body { background-color: lightblue; }</code></pre>
+        `;
+      } else if (lang === "JS") {
+        infoHTML = `
+          <h2>JavaScript Codes</h2>
+          <p>JavaScript adds interactivity to websites. Example:</p>
+          <pre><code>alert('Hello World!');</code></pre>
+        `;
+      }
+
+      if (languageInfo) {
+        languageInfo.innerHTML = infoHTML;
+        languageInfo.classList.add('active');
+      }
+    });
+  });
+</script>
+  <script>/* ======= Tab navigation (Home / About / Contact / Learn) ======= */
+document.addEventListener('DOMContentLoaded', function () {
+  const links = document.querySelectorAll('.tab-link');
+  const panes = document.querySelectorAll('.tab-pane');
+
+  function activateTab(hash) {
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === hash));
+    panes.forEach(p => p.classList.toggle('active', '#' + p.id === hash));
+  }
+
+  // click handlers
+  links.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = link.getAttribute('href');
+      activateTab(target);
+      // scroll up a little for mobile
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // default (if any hash present on load)
+  if (location.hash) {
+    activateTab(location.hash);
+  }
+});
+
+/* ======= Circle rotation (drag) & click to open overlay ======= */
+(function () {
+  const circle = document.getElementById('rotatingCircle');
+  if (!circle) return;
+
+  let isDragging = false, startX = 0, rotationY = 0;
+
+  // pointer events for better mobile compatibility
+  circle.addEventListener('pointerdown', (e) => {
+    isDragging = true;
+    startX = e.clientX || e.touches && e.touches[0].clientX;
+    circle.style.animationPlayState = 'paused'; // pause auto spin while dragging
+    circle.setPointerCapture && circle.setPointerCapture(e.pointerId);
+  });
+
+  document.addEventListener('pointerup', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    circle.style.animationPlayState = 'running'; // resume spin
+    circle.releasePointerCapture && circle.releasePointerCapture(e.pointerId);
+  });
+
+  document.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    const delta = clientX - startX;
+    startX = clientX;
+    rotationY += delta * 0.4;
+    circle.style.transform = `rotateY(${rotationY}deg)`;
+  });
+
+  // click to open overlay
+  const items = document.querySelectorAll('.circle-item');
+  items.forEach(btn => {
+    btn.addEventListener('click', (ev) => {
+      ev.stopPropagation();
+      const targetId = btn.getAttribute('data-target');
+      if (!targetId) return;
+      openOverlay(targetId);
+    });
+  });
+
+  // open overlay function (adds active class)
+  function openOverlay(id) {
+    const overlay = document.getElementById(id);
+    if (!overlay) return;
+    overlay.classList.add('active');
+    overlay.setAttribute('aria-hidden', 'false');
+    // focus first heading inside overlay for accessibility
+    const h = overlay.querySelector('h1, h2');
+    if (h) h.focus && h.focus();
+  }
+
+  // close overlays
+  const closeButtons = document.querySelectorAll('[data-close], .overlay-close');
+  closeButtons.forEach(btn => btn.addEventListener('click', (e) => {
+    const overlay = e.target.closest('.overlay');
+    if (overlay) closeOverlay(overlay);
+  }));
+
+  // close when clicking outside inner area
+  document.querySelectorAll('.overlay').forEach(overlay => {
+    overlay.addEventListener('click', function (ev) {
+      if (ev.target === overlay) closeOverlay(overlay);
+    });
+  });
+
+  function closeOverlay(overlay) {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  // Esc key to close overlays
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.overlay.active').forEach(o => closeOverlay(o));
+    }
+  });
+})();</script>
+
+<!-- Consolidated & Fixed script: REPLACES all previous JS behavior for Learn Coding overlays and tab links -->
+<script>
+/*
+  Final consolidated script:
+  - Keeps original tab navigation working (Home/About/Contact/Learn)
+  - Adds click handlers for Learn Coding circles:
+      * .html-circle -> opens #html-tab (fullscreen-tab)
+      * .css-circle  -> opens #css-tab  (fullscreen-tab)
+      * .js-circle   -> opens #overlay-js (overlay)
+  - Adds universal close handling (buttons with .close-btn or [data-close])
+  - Adds simple drag-to-rotate for #circle (if present)
+*/
+
+(function () {
+  // TAB NAVIGATION (safe idempotent)
+  const tabLinks = document.querySelectorAll('.tab-link');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+
+  function activateTabByHash(hash) {
+    tabLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === hash));
+    tabPanes.forEach(p => p.classList.toggle('active', '#' + p.id === hash));
+  }
+
+  tabLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = link.getAttribute('href');
+      activateTabByHash(target);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // update URL hash without jumping
+      history.replaceState(null, '', target);
+    });
+  });
+
+  if (location.hash) {
+    activateTabByHash(location.hash);
+  }
+
+  // LEARN CODING: circle buttons (these elements exist in your markup)
+  const htmlCircle = document.querySelector('.html-circle');
+  const cssCircle = document.querySelector('.css-circle');
+  const jsCircle = document.querySelector('.js-circle');
+
+  if (htmlCircle) {
+    htmlCircle.addEventListener('click', () => {
+      const el = document.getElementById('html-tab');
+      if (el) {
+        el.classList.add('active');
+        el.setAttribute('aria-hidden', 'false');
+      }
+    });
+  }
+
+  if (cssCircle) {
+    cssCircle.addEventListener('click', () => {
+      const el = document.getElementById('css-tab');
+      if (el) {
+        el.classList.add('active');
+        el.setAttribute('aria-hidden', 'false');
+      }
+    });
+  }
+
+  if (jsCircle) {
+    jsCircle.addEventListener('click', () => {
+      const el = document.getElementById('overlay-js');
+      if (el) {
+        el.classList.add('active');
+        el.setAttribute('aria-hidden', 'false');
+      }
+    });
+  }
+
+  // Universal close: .close-btn, .overlay-close, [data-close]
+  function closeAllOverlaysAndFullscreenTabs() {
+    document.querySelectorAll('.fullscreen-tab.active, .overlay.active').forEach(el => {
+      el.classList.remove('active');
+      el.setAttribute('aria-hidden', 'true');
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    // close when clicking elements with [data-close] or close buttons
+    if (e.target.matches('.close-btn') || e.target.matches('[data-close]') || e.target.matches('.overlay-close')) {
+      closeAllOverlaysAndFullscreenTabs();
+    }
+  });
+
+  // close when clicking outside inner overlay-content (for overlays with class .overlay)
+  document.querySelectorAll('.overlay').forEach(overlay => {
+    overlay.addEventListener('click', function (ev) {
+      if (ev.target === overlay) closeAllOverlaysAndFullscreenTabs();
+    });
+  });
+
+  // ESC to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllOverlaysAndFullscreenTabs();
+  });
+
+  // Drag-to-rotate for #circle (desktop + pointer supported)
+  const rotCircle = document.getElementById('circle');
+  if (rotCircle) {
+    let dragging = false;
+    let lastX = 0;
+    let currentRotation = 0;
+
+    rotCircle.style.transform = rotCircle.style.transform || 'rotateY(0deg)';
+
+    rotCircle.addEventListener('pointerdown', (ev) => {
+      dragging = true;
+      lastX = ev.clientX;
+      rotCircle.setPointerCapture && rotCircle.setPointerCapture(ev.pointerId);
+      // pause CSS animation if any
+      rotCircle.style.animationPlayState = 'paused';
+    });
+
+    document.addEventListener('pointermove', (ev) => {
+      if (!dragging) return;
+      const dx = ev.clientX - lastX;
+      lastX = ev.clientX;
+      currentRotation += dx * 0.4;
+      rotCircle.style.transform = 'rotateY(' + currentRotation + 'deg)';
+    });
+
+    document.addEventListener('pointerup', (ev) => {
+      if (!dragging) return;
+      dragging = false;
+      rotCircle.releasePointerCapture && rotCircle.releasePointerCapture(ev.pointerId);
+      // resume animation if needed
+      rotCircle.style.animationPlayState = '';
+    });
+  }
+
+  // Extra: ensure any existing .circle-item clicks that expect data-target won't break
+  document.querySelectorAll('.circle-item').forEach(btn => {
+    btn.addEventListener('click', (ev) => {
+      // if element has data-target attribute and that target exists, open it
+      const targetId = btn.getAttribute('data-target');
+      if (targetId) {
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.classList.add('active');
+          targetEl.setAttribute('aria-hidden', 'false');
+        }
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
+```
+
